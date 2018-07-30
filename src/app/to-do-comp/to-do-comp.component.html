@@ -1,0 +1,50 @@
+
+
+<h2>  Add Task </h2>
+<div>
+	<div>
+	  <label for="task-title"> Task Name </label>
+	  <input type="text" [(ngModel)]="newEntry.title">
+	</div>
+	<div>
+	  <label for="task-description"> Task Description </label>
+	  <input type="text" [(ngModel)]="newEntry.description">
+	</div>
+
+	<button (click)="addNewEntry()">Submit New Task</button>
+</div>
+
+<h2> Current Tasks </h2>
+<div>
+	<div *ngFor = "let entry of entries">
+		Title: {{entry.title}}
+		<br>
+		Done Status: {{entry.doneyet}}
+		<br>
+		Description: {{entry.description}}
+		<br>
+		
+		<button (click)= "deleteEntry(entry._id)"> Delete Food </button>
+		<button (click) ="showDiv = !showDiv">test </button>
+			<div *ngIf="showDiv" >
+				<div>
+					<label for="task-title"> New Task Name </label>
+					<input type="text" [(ngModel)]="newEntry.title">
+				</div>
+				<div>
+				  <label for="task-description"> New Task Description </label>
+				  <input type="text" [(ngModel)]="newEntry.description">
+				</div>
+				<div>
+				  <label for="task-doneyet"> Done? </label>
+				  <input type="text" [(ngModel)]="newEntry.doneyet">
+				</div>
+
+			<button (click)="editEntry(entry._id)">Edit Task</button>
+			</div>
+
+		<br><br>
+	</div>
+</div> 
+
+
